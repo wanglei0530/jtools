@@ -153,7 +153,7 @@
          */
         function donate(){
             if($("#donate").attr("show")=="no"){
-                $("#donate").html('<img src="http://upyun.bejson.com/img/zhengkai.png"></img>');
+                $("#donate").html('<img src="https://ae01.alicdn.com/kf/Hcbbe0d32141941808702c3cf153642376.jpg"></img>');
                 $("#donate").attr("show","yes");
             }else{
                 $("#donate").html('<p>谢谢赞赏！</p>');
@@ -210,7 +210,7 @@
 
     <div class="container">
         <nav class="navbar navbar-dark bg-primary btn-lg">
-            <a class="navbar-brand" href="http://www.bejson.com">BeJSON在线工具站</a>
+            <a class="navbar-brand" href="https://wanglei0530.github.io/">博主主页</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="https://github.com/wanglei0530">JTools</a>
@@ -226,7 +226,7 @@
         <p class="lead">
             √基于SpringBoot2+Freemarker的<a class="lead" href="https://github.com/wanglei0530">代码生成器</a>，√以释放双手为目的，√支持mysql/oracle/pgsql三大数据库，<br>
             √用DDL-SQL语句生成JPA/JdbcTemplate/Mybatis/MybatisPlus/BeetlSQL相关代码。<br>
-            如果发现有SQL语句不能识别，请<a href="https://github.com/wanglei0530/jtools/issues">留言</a>，同时欢迎大家提<a href="https://github.com/wanglei0530">PR</a>和<a href="#" id="donate1">赞赏</a>，谢谢！<a id="version" href="#">查看版本</a>
+            如果发现有SQL语句不能识别，请<a href="https://wanglei0530.github.io/message/">留言</a>，同时欢迎大家提<a href="https://github.com/wanglei0530">PR</a>和<a href="#" id="donate1">赞赏</a>，谢谢！<a id="version" href="#">查看版本</a>
         </p>
         <div id="donate" class="container" show="no"></div>
         <hr>

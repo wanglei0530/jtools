@@ -52,8 +52,9 @@
         <footer>
             <footer class="bd-footer text-muted" role="contentinfo">
                 <div class="container">
-                    <strong>Copyright &copy; ${.now?string('yyyy')}-2022 &nbsp;
-                        <p><a href="https://github.com/moshowgame/SpringBootCodeGenerator">SpringBootCodeGenerator</a>由<a href="https://blog.csdn.net/moshowgame" target="_blank">@Moshow/大狼狗/郑锴</a> 开发维护。 由 <a href="https://www.bejson.com">BeJson三叔 </a> 提供在线版本。点击<a href="#" id="donate2">赞赏</a>。</p>
+                    <strong>Copyright &copy; ${.now?string('yyyy')}-2024 &nbsp;
+                        <p><a href="https://github.com/moshowgame/
+                        SpringBootCodeGenerator">SpringBootCodeGenerator</a>由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护。 由 <a href="https://wanglei0530.github.io/">wanglei0530 </a> 提供在线版本。点击<a href="#" id="donate2">赞赏</a>。</p>
                 </div>
             </footer>
         </footer>
