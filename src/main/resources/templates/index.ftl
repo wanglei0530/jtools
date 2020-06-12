@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JTools</title>
-    <meta name="keywords" content="JTools">
+    <meta name="keywords" content="JTools,MybaitsGenerator,Mybaits在线自动生产代码,java王蕾,Json转Bean,Java JPA">
 
     <#import "common/common-import.ftl" as netCommon>
     <@netCommon.commonStyle />
