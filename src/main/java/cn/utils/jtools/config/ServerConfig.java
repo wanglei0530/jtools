@@ -24,7 +24,7 @@ public class ServerConfig implements ApplicationListener<WebServerInitializedEve
     public void onApplicationEvent(WebServerInitializedEvent event) {
         this.serverPort = event.getWebServer().getPort();
         //log.info("Get WebServer port {}", serverPort);
-        log.info("Project started successfully, address: http://localhost:{}/jtools", serverPort);
+        log.info("Project started successfully, address: http://localhost:{}", serverPort);
     }
 
 }
