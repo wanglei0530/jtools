@@ -54,7 +54,7 @@
                 <div class="container">
                     <strong>Copyright &copy; ${.now?string('yyyy')}-2024 &nbsp;
                         <p><a href="https://github.com/moshowgame/
-                        SpringBootCodeGenerator">SpringBootCodeGenerator</a>由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护。 由 <a href="https://wanglei0530.github.io/">wanglei0530 </a> 提供在线版本。点击<a href="#" id="donate2">赞赏</a>。</p>
+                        SpringBootCodeGenerator">SpringBootCodeGenerator</a>由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护; 由 BeJson/三叔 提供源码分享。点击<a href="#" id="donate2">赞赏</a>。</p>
                 </div>
             </footer>
         </footer>
