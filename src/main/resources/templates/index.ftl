@@ -210,7 +210,7 @@
 
     <div class="container">
         <nav class="navbar navbar-dark bg-primary btn-lg">
-            <a class="navbar-brand" href="https://wanglei0530.github.io/" target="_blank">博主主页</a>
+            <a class="navbar-brand" href="https://wanglei0530.github.io/" target="_blank">站长主页</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link" href="https://github.com/wanglei0530" target="_blank">JTools</a>
