@@ -23,7 +23,7 @@ import java.util.Map;
 /**
  * spring boot code generator
  *
- * @author zhengk/moshow
+ * @author wanglei
  */
 @Controller
 @Slf4j
