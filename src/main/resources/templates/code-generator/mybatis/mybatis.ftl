@@ -51,6 +51,31 @@
         </trim>
     </insert>
 
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO ${classInfo.tableName}
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
+                <#list classInfo.fieldList as fieldItem >
+                    <#if fieldItem.columnName != "id" >
+                        ${fieldItem.columnName}<#if fieldItem_has_next>,</#if>
+                    </#if>
+                </#list>
+            </#if>
+        </trim>
+        VALUES
+        <foreach item="item" collection="list" separator=",">
+            <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
+                (
+                <#list classInfo.fieldList as fieldItem >
+                    <#if fieldItem.columnName != "id" >
+                        ${r"#{item."}${fieldItem.fieldName}${r"}"}<#if fieldItem_has_next>,</#if>
+                    </#if>
+                </#list>
+                )
+            </#if>
+        </foreach>
+    </insert>
+
     <delete id="delete" >
         DELETE FROM ${classInfo.tableName}
         WHERE id = ${r"#{id}"}
@@ -68,11 +93,16 @@
         WHERE id = ${r"#{"}id${r"}"}
     </update>
 
-
     <select id="selectByKey" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
         FROM ${classInfo.tableName}
         WHERE id = ${r"#{id}"}
+    </select>
+
+    <select id="selectByField" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM ${classInfo.tableName}
+        WHERE ${r"${field}"} = ${r"#{value}"}
     </select>
 
     <#--<select id="pageList" resultMap="BaseResultMap">-->
