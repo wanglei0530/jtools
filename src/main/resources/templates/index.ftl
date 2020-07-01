@@ -259,9 +259,9 @@
             </div>
             <select type="text" class="form-control" id="tinyintTransType"
                     name="tinyintTransType">
+                <option value="Integer">Integer</option>
                 <option value="boolean">boolean</option>
                 <option value="Boolean">Boolean</option>
-                <option value="Integer">Integer</option>
                 <option value="int">int</option>
                 <option value="String">String</option>
             </select>
