@@ -224,7 +224,7 @@
     <div class="container">
         <h2>Spring Boot Code Generator!</h2>
         <p class="lead">
-            √基于SpringBoot2+Freemarker的<a class="lead" href="https://github.com/wanglei0530" target="_blank" >代码生成器</a>，√以释放双手为目的，√支持mysql/oracle/pgsql三大数据库，<br>
+            √基于SpringBoot2+Freemarker的<a class="lead" href="https://github.com/wanglei0530/jtools" target="_blank" >代码生成器</a>，√以释放双手为目的，√支持mysql/oracle/pgsql三大数据库，<br>
             √用DDL-SQL语句生成JPA/JdbcTemplate/Mybatis/MybatisPlus/BeetlSQL相关代码。<br>
             如果发现有SQL语句不能识别，请<a href="https://wanglei0530.github.io/message/" target="_blank" >留言</a>，同时欢迎大家提<a href="https://github.com/wanglei0530" target="_blank" >PR</a>和<a href="#" id="donate1">赞赏</a>，谢谢！<a id="version" href="#">查看版本</a>
         </p>
