@@ -102,7 +102,13 @@
     <select id="selectByField" resultMap="BaseResultMap">
         SELECT <include refid="Base_Column_List" />
         FROM ${classInfo.tableName}
-        WHERE ${r"${field}"} = ${r"#{value}"}
+        WHERE 1 = 1
+        ${r"<if test ='null != value'>"}
+            and ${r"${field}"} = ${r"#{value}"}
+        ${r"</if>"}
+        ${r"<if test ='null == value'>"}
+            and ${r"${field}"} is null
+        ${r"</if>"}
     </select>
 
     <#--<select id="pageList" resultMap="BaseResultMap">-->
