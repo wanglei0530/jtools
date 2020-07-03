@@ -1,7 +1,7 @@
 <#macro commonStyle>
 
 <#-- favicon -->
-<link rel="icon" href="favicon.ico" />
+<link rel="icon" href="http://www.tuyitu.com/_temp/30868026879359.jpg" />
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
