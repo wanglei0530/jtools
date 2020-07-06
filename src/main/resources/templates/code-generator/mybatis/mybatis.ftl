@@ -56,9 +56,9 @@
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
                 <#list classInfo.fieldList as fieldItem >
-                    <#if fieldItem.columnName != "id" >
+                    <#--<#if fieldItem.columnName != "id" >-->
                         ${fieldItem.columnName}<#if fieldItem_has_next>,</#if>
-                    </#if>
+                    <#--</#if>-->
                 </#list>
             </#if>
         </trim>
@@ -67,9 +67,9 @@
             <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
                 (
                 <#list classInfo.fieldList as fieldItem >
-                    <#if fieldItem.columnName != "id" >
+                    <#--<#if fieldItem.columnName != "id" >-->
                         ${r"#{item."}${fieldItem.fieldName}${r"}"}<#if fieldItem_has_next>,</#if>
-                    </#if>
+                    <#--</#if>-->
                 </#list>
                 )
             </#if>
