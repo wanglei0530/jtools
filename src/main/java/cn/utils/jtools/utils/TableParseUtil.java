@@ -190,30 +190,31 @@ public class TableParseUtil {
 
                     // field class
                     columnLine = columnLine.substring(columnLine.indexOf("`")+1).trim();
+                    String columnType = columnLine.substring(columnLine.indexOf(" "));
                     // int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
                     String fieldClass = Object.class.getSimpleName();
                     //2018-9-16 zhengk 补充char/clob/blob/json等类型，如果类型未知，默认为String
                     //2018-11-22 lshz0088 处理字段类型的时候，不严谨columnLine.contains(" int") 类似这种的，可在前后适当加一些空格之类的加以区分，否则当我的字段包含这些字符的时候，产生类型判断问题。
-                    if (columnLine.contains(" int") || columnLine.contains("smallint")) {
+                    if (columnType.contains(" int") || columnType.contains("smallint")) {
                         fieldClass = Integer.class.getSimpleName();
-                    } else if (columnLine.contains("bigint")) {
+                    } else if (columnType.contains("bigint")) {
                         fieldClass = Long.class.getSimpleName();
-                    } else if (columnLine.contains("float")) {
+                    } else if (columnType.contains("float")) {
                         fieldClass = Float.class.getSimpleName();
-                    } else if (columnLine.contains("double")) {
+                    } else if (columnType.contains("double")) {
                         fieldClass = Double.class.getSimpleName();
-                    } else if (columnLine.contains("time") || columnLine.contains(" date") || columnLine.contains("datetime") || columnLine.contains("timestamp")) {
+                    } else if (columnType.contains("time") || columnType.contains(" date") || columnType.contains("datetime") || columnType.contains("timestamp")) {
                         fieldClass = Date.class.getSimpleName();
-                    } else if (columnLine.contains("varchar") || columnLine.contains(" text")|| columnLine.contains("char")
-                            || columnLine.contains("clob")||columnLine.contains("blob")||columnLine.contains("json")) {
+                    } else if (columnType.contains("varchar") || columnType.contains(" text")|| columnType.contains("char")
+                            || columnType.contains("clob") || columnType.contains("blob") || columnType.contains("json")) {
                         fieldClass = String.class.getSimpleName();
-                    } else if (columnLine.contains("decimal")||columnLine.contains(" number")) {
+                    } else if (columnType.contains("decimal")||columnType.contains(" number")) {
                         //2018-11-22 lshz0088 建议对number类型增加int，long，BigDecimal的区分判断
                         //如果startKh大于等于0，则表示有设置取值范围
-                        int startKh=columnLine.indexOf("(");
+                        int startKh=columnType.indexOf("(");
                         if(startKh>=0){
-                            int endKh=columnLine.indexOf(")",startKh);
-                            String[] fanwei=columnLine.substring(startKh+1,endKh).split("，");
+                            int endKh=columnType.indexOf(")",startKh);
+                            String[] fanwei=columnType.substring(startKh+1,endKh).split("，");
                             //2019-1-5 zhengk 修复@arthaschan反馈的超出范围错误
                             //System.out.println("fanwei"+ JSON.toJSONString(fanwei));
                             //                            //number(20,6) fanwei["20","6"]
@@ -239,10 +240,10 @@ public class TableParseUtil {
                         }else{
                             fieldClass = BigDecimal.class.getSimpleName();
                         }
-                    } else if (columnLine.contains("boolean")) {
+                    } else if (columnType.contains("boolean")) {
                         //20190910 MOSHOW.K.ZHENG 新增对boolean的处理（感谢@violinxsc的反馈）以及修复tinyint类型字段无法生成boolean类型问题（感谢@hahaYhui的反馈）
                         fieldClass = Boolean.class.getSimpleName();
-                    } else if (columnLine.contains("tinyint") ) {
+                    } else if (columnType.contains("tinyint") ) {
                         //20191115 MOSHOW.K.ZHENG 支持对tinyint的特殊处理
                         fieldClass=tinyintTransType;
                     } else {
@@ -418,4 +419,8 @@ public class TableParseUtil {
         }
         return fieldList;
     }
+
+	public static void main(String[] args) {
+		System.out.println("abc".length());
+	}
 }

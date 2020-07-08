@@ -45,15 +45,22 @@
     <script src="//cdn.staticfile.org/codemirror/5.48.4/mode/xml/xml.min.js"></script>
 </#macro>
 
-
 <#macro commonFooter >
     <div class="container">
         <hr>
         <footer>
             <footer class="bd-footer text-muted" role="contentinfo">
                 <div class="container">
+                    <#assign create_date = "2019-10-01"/>
                     <strong>Copyright &copy; ${.now?string('yyyy')}-2024 &nbsp;
-                        <p><a href="https://github.com/wanglei0530/jtools">JTools</a>由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护; 由 BeJson/三叔 提供源码分享。点击<a href="#" id="donate2">赞赏</a>。</p>
+                    <#--<strong>贡献天数: &nbsp; ${dateDiff(.now,.now)} 天-->
+                    <#--<strong>贡献天数: &nbsp; ${.now - (create_date?date("yyyyMMdd"))} 天-->
+                    <#--<strong>贡献天数: &nbsp; ${((create_date?date("yyyyMMdd")?string("yyyyMMdd"))!)} 天-->
+                        <p>
+                            <a href="https://github.com/wanglei0530/jtools">JTools</a>
+                            由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护; 由 BeJson/三叔 提供源码分享。点击
+                            <a href="#" id="donate2">赞赏</a>。
+                        </p>
                 </div>
             </footer>
         </footer>
