@@ -53,11 +53,12 @@
                 <div class="container">
                     <#assign create_date = "2019-10-01"/>
                     <strong>Copyright &copy; ${.now?string('yyyy')}-2024 &nbsp;
+                        <a href="http://beian.miit.gov.cn/publish/query/indexFirst.action" target="_blank"> 京ICP备 20026733号</a>
                     <#--<strong>贡献天数: &nbsp; ${dateDiff(.now,.now)} 天-->
                     <#--<strong>贡献天数: &nbsp; ${.now - (create_date?date("yyyyMMdd"))} 天-->
                     <#--<strong>贡献天数: &nbsp; ${((create_date?date("yyyyMMdd")?string("yyyyMMdd"))!)} 天-->
                         <p>
-                            <a href="https://github.com/wanglei0530/jtools">JTools</a>
+                            <a href="https://github.com/wanglei0530/jtools" target="_blank">JTools</a>
                             由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护; 由 BeJson/三叔 提供源码分享。点击
                             <a href="#" id="donate2">赞赏</a>。
                         </p>
