@@ -284,13 +284,14 @@
             </select>
         </div>
         <textarea id="ddlSqlArea" placeholder="请输入表结构信息..." class="form-control btn-lg" style="height: 250px;">
-CREATE TABLE 'userinfo' (
-  'user_id' int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-  'username' varchar(255) NOT NULL COMMENT '用户名',
-  'addtime' datetime NOT NULL COMMENT '创建时间',
-  PRIMARY KEY ('user_id')
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息'
-        </textarea><br>
+            CREATE TABLE 'userinfo' (
+              'user_id' int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+              'username' varchar(255) NOT NULL COMMENT '用户名',
+              'addtime' datetime NOT NULL COMMENT '创建时间',
+              PRIMARY KEY ('user_id')
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息'
+        </textarea>
+        <br>
         <p><button class="btn btn-primary btn-lg disabled" id="btnGenCode" role="button" data-toggle="popover" data-content="">开始生成 »</button> <button class="btn alert-secondary" id="btnCopy">一键复制</button></p>
         <div id="history" class="btn-group" role="group" aria-label="Basic example"></div>
         <hr>
