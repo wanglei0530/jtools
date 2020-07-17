@@ -59,7 +59,7 @@
                     <#--<strong>贡献天数: &nbsp; ${((create_date?date("yyyyMMdd")?string("yyyyMMdd"))!)} 天-->
                         <p>
                             <a href="https://github.com/wanglei0530/jtools" target="_blank">JTools</a>
-                            由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护; 由 BeJson/三叔 提供源码分享。点击
+                            由<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools-王蕾</a> 开发维护; BeJson/三叔 提供源码分享。点击
                             <a href="#" id="donate2">赞赏</a>。
                         </p>
                 </div>
