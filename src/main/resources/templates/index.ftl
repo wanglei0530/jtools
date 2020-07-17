@@ -213,7 +213,7 @@
             <a class="navbar-brand" href="https://wanglei0530.github.io/" target="_blank">站长主页</a>
             <ul class="nav navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="https://github.com/wanglei0530" target="_blank">JTools</a>
+                    <a class="nav-link" href="https://github.com/wanglei0530/jtools" target="_blank">JTools</a>
                 </li>
             </ul>
         </nav>
