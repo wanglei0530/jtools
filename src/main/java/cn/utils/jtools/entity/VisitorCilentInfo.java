@@ -3,6 +3,7 @@ package cn.utils.jtools.entity;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author ：wanglei
@@ -63,6 +64,8 @@ public class VisitorCilentInfo implements Serializable,ToJSON {
 	 * 生产代码参数
 	 */
 	private String paramInfo;
+
+	private Date createTime;
 
 	public VisitorCilentInfo() {
 	}

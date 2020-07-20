@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -105,6 +106,7 @@ public class GeneratorServiceImpl implements GeneratorService {
 			cilentInfo.setReferer(request.getHeader("referer"));
 			cilentInfo.setCookie(request.getHeader("cookie"));
 			cilentInfo.setParamInfo(paramInfo.toJSON());
+			cilentInfo.setCreateTime(new Date());
 			visitorCilentInfoMapper.insert(cilentInfo);
 		} catch (Exception e) {
 			log.error("记录游客客户端信息,发生异常:{}", e);
