@@ -82,7 +82,7 @@ public class IndexController {
 			log.error(e.getMessage(), e);
 			return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
 		}finally {
-			generatorService.asyncCilentInfo(request);
+			generatorService.asyncCilentInfo(request,paramInfo);
 		}
 
 	}

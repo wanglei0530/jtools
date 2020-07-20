@@ -1,23 +1,18 @@
 spring:
-  banner:
-    charset: UTF-8
-  http:
-    encoding:
-      force: true
-      charset: UTF-8
-  application:
-    name: spring-boot-jtools
-  freemarker:
-    request-context-attribute: request
-    suffix: .ftl
-    content-type: text/html
-    enabled: true
-    cache: false
-    charset: UTF-8
-    allow-request-override: false
-    expose-request-attributes: true
-    expose-session-attributes: true
-    expose-spring-macro-helpers: true
-#    template-loader-path: classpath:/templates/
-  mvc:
-    static-path-pattern: /static/**
+  datasource:
+    druid:
+      max-active: 30
+      initial-size: 10 #数据源配置 初始化大小
+      max-wait: 60000 #连接等待时间
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000 # 检测（可以关闭的连接）
+      min-evictable-idle-time-millis: 300000  # 配置池中的最小生存时间
+      test-while-idle: true
+      test-on-return: false
+      test-on-borrow: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/jtools?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false&autoReconnect=true&autoReconnectForPools=true
+      username: root
+      password: jianyiasd

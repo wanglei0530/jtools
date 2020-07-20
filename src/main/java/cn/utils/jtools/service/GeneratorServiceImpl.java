@@ -2,9 +2,11 @@ package cn.utils.jtools.service;
 
 import cn.hutool.http.useragent.UserAgent;
 import cn.hutool.http.useragent.UserAgentUtil;
-import cn.hutool.json.JSONUtil;
+import cn.utils.jtools.entity.ParamInfo;
+import cn.utils.jtools.entity.VisitorCilentInfo;
+import cn.utils.jtools.mapper.VisitorCilentInfoMapper;
+import cn.utils.jtools.utils.CilentUtils;
 import cn.utils.jtools.utils.FreemarkerTool;
-import com.alibaba.fastjson.JSONObject;
 import freemarker.template.TemplateException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +29,8 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	@Autowired
 	private FreemarkerTool freemarkerTool;
+	@Autowired
+	private VisitorCilentInfoMapper visitorCilentInfoMapper;
 
 	@Override
 	public Map<String, String> getResultByParams(Map<String, Object> params) throws IOException, TemplateException {
@@ -86,55 +89,27 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	@Override
 	@Async("taskExecutor")
-	public void asyncCilentInfo(HttpServletRequest request) {
+	public void asyncCilentInfo(HttpServletRequest request, ParamInfo paramInfo) {
 		try {
-			log.info("记录游客客户端信息:{}", getHeaderJson(request));
-			UserAgent ua = UserAgentUtil.parse(request.getHeader("user-agent"));
-			log.info("记录游客客户端信息user-agent:" + JSONUtil.toJsonStr(ua));
-			log.info("ip:" + getIpAddr(request));
-//			request.getHeader("user-agent");
-//			request.getHeader("referer");
-//			request.getHeader("x-forwarded-for");
+			log.info("记录游客客户端信息:{}", CilentUtils.getHeaderJson(request));
+			String userAgent = request.getHeader("user-agent");
+			UserAgent ua = UserAgentUtil.parse(userAgent);
+
+			VisitorCilentInfo cilentInfo = new VisitorCilentInfo();
+			cilentInfo.setBrowser(ua.getBrowser().getName());
+			cilentInfo.setMobile(ua.getPlatform().isMobile());
+			cilentInfo.setOs(ua.getOs().getName());
+			cilentInfo.setPlatform(ua.getPlatform().getName());
+			cilentInfo.setRealIp(CilentUtils.getIpAddr(request));
+			cilentInfo.setUserAgent(userAgent);
+			cilentInfo.setReferer(request.getHeader("referer"));
+			cilentInfo.setCookie(request.getHeader("cookie"));
+			cilentInfo.setParamInfo(paramInfo.toJSON());
+			visitorCilentInfoMapper.insert(cilentInfo);
 		} catch (Exception e) {
 			log.error("记录游客客户端信息,发生异常:{}", e);
 		}
 	}
 
-	/**
-	 * 获取请求头信息
-	 */
-	private String getHeaderJson(HttpServletRequest request) {
-		Enumeration<String> headerNames = request.getHeaderNames();
-		JSONObject header = new JSONObject();
-		while (headerNames.hasMoreElements()) {
-			String headerName = headerNames.nextElement();
-			header.put(headerName, request.getHeader(headerName));
-		}
-		return header.toJSONString();
-	}
 
-	public String getIpAddr(HttpServletRequest request) {
-		if (request == null) {
-			return "unknown";
-		}
-		String ip = request.getHeader("x-forwarded-for");
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("X-Forwarded-For");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("WL-Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("X-Real-IP");
-		}
-
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getRemoteAddr();
-		}
-
-		return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip.split(",")[0];
-	}
 }

@@ -1,5 +1,6 @@
 package cn.utils.jtools.service;
 
+import cn.utils.jtools.entity.ParamInfo;
 import freemarker.template.TemplateException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -8,12 +9,13 @@ import java.util.Map;
 
 /**
  * GeneratorService
+ *
  * @author wanglei
  */
 public interface GeneratorService {
 
-    Map<String,String> getResultByParams(Map<String, Object> params) throws IOException, TemplateException;
+	Map<String, String> getResultByParams(Map<String, Object> params) throws IOException, TemplateException;
 
-	void asyncCilentInfo(HttpServletRequest request);
+	void asyncCilentInfo(HttpServletRequest request, ParamInfo paramInfo);
 
 }
