@@ -20,4 +20,4 @@ else
 fi
 
 echo "Step 4/4 启动项目..."
-nohup java -jar -Dspring.profiles.active=prod /root/java_project/jtools/target/jtools-1.0.0.jar & tail -50f /root/java_project/logs/info.log 2>&1 &
+nohup java -jar -Dspring.profiles.active=prod /root/java_project/jtools/target/jtools-1.0.0.jar & tail -50f /root/java_project/logs/jtools/info.log 2>&1 &

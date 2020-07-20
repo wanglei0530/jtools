@@ -1,30 +1,37 @@
 package cn.utils.jtools.config;
 
+import cn.hutool.core.util.StrUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.context.WebServerInitializedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
 /**
  * @Description 动态获取tomcat启动端口，控制台打印项目访问地址
- * @Author Gao Hang Hang
+ * @author wanglei
  * @Date 2019-12-27 14:37
  **/
 @Component
 @Slf4j
 public class ServerConfig implements ApplicationListener<WebServerInitializedEvent> {
 
-    private int serverPort;
+	@Value("${spring.profiles.active}")
+	private String profilesActive;
 
-    public int getPort() {
-        return this.serverPort;
-    }
+	private int serverPort;
 
-    @Override
-    public void onApplicationEvent(WebServerInitializedEvent event) {
-        this.serverPort = event.getWebServer().getPort();
-        //log.info("Get WebServer port {}", serverPort);
-        log.info("Project started successfully, address: http://localhost:{}", serverPort);
-    }
+	public int getPort() {
+		return this.serverPort;
+	}
+
+	@Override
+	public void onApplicationEvent(WebServerInitializedEvent event) {
+		this.serverPort = event.getWebServer().getPort();
+		//log.info("Get WebServer port {}", serverPort);
+		if (!StrUtil.equals("prod", profilesActive)) {
+			log.info("Project started successfully, address: http://localhost:{}", serverPort);
+		}
+	}
 
 }
