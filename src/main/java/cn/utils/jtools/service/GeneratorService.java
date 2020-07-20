@@ -7,10 +7,12 @@ import java.util.Map;
 
 /**
  * GeneratorService
- * @author zhengkai.blog.csdn.net
+ * @author wanglei
  */
 public interface GeneratorService {
 
-    public Map<String,String> getResultByParams(Map<String, Object> params) throws IOException, TemplateException;
+    Map<String,String> getResultByParams(Map<String, Object> params) throws IOException, TemplateException;
+
+	void asyncCilentInfo();
 
 }

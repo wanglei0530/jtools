@@ -2,12 +2,12 @@ server:
   port: 5111
   servlet:
     context-path:
-#tomcat:
-#    remote-ip-header: x-forward-for
-#    uri-encoding: UTF-8
-#    max-threads: 10
-#    background-processor-delay: 30
-#    basedir: ${user.home}/tomcat/
+  #tomcat:
+  #    remote-ip-header: x-forward-for
+  #    uri-encoding: UTF-8
+  #    max-threads: 10
+  #    background-processor-delay: 30
+  #    basedir: ${user.home}/tomcat/
   undertow:
     # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
     # 不要设置过大，如果过大，启动项目会报错：打开文件数过多
@@ -22,25 +22,7 @@ server:
     direct-buffers: true
 
 spring:
-  banner:
-    charset: UTF-8
-  http:
-    encoding:
-      force: true
-      charset: UTF-8
-  application:
-    name: spring-boot-jtools
-  freemarker:
-    request-context-attribute: request
-    suffix: .ftl
-    content-type: text/html
-    enabled: true
-    cache: false
-    charset: UTF-8
-    allow-request-override: false
-    expose-request-attributes: true
-    expose-session-attributes: true
-    expose-spring-macro-helpers: true
-#    template-loader-path: classpath:/templates/
-  mvc:
-    static-path-pattern: /static/**
+#  application:
+#    name: jtools-service #服务名
+  profiles:
+    active: dev

@@ -40,14 +40,11 @@ public class IndexController {
 	@PostMapping("/genCode")
 	@ResponseBody
 	public ReturnT<Map<String, String>> codeGenerate(@RequestBody ParamInfo paramInfo) {
-
 		try {
-
 			if (StringUtils.isBlank(paramInfo.getTableSql())) {
 				return new ReturnT<>(ReturnT.FAIL_CODE, "表结构信息不可为空");
 			}
-
-			// parse table
+			//parse table
 			ClassInfo classInfo = null;
 			switch (paramInfo.getDataType()) {
 				//parse json
@@ -63,8 +60,7 @@ public class IndexController {
 					classInfo = TableParseUtil.processTableIntoClassInfo(paramInfo);
 					break;
 			}
-
-			// process the param
+			//process the param
 			Map<String, Object> params = new HashMap<String, Object>(8);
 			params.put("classInfo", classInfo);
 			params.put("tableName", classInfo == null ? System.currentTimeMillis() : classInfo.getTableName());
@@ -75,8 +71,7 @@ public class IndexController {
 			//log.info(JSON.toJSONString(paramInfo));
 			log.info("generator table:" + (classInfo == null ? "" : classInfo.getTableName())
 					+ ",field size:" + ((classInfo == null || classInfo.getFieldList() == null) ? "" : classInfo.getFieldList().size()));
-
-			// generate the code 需要加新的模板请在里面改
+			//generate the code 需要加新的模板请在里面改
 			Map<String, String> result = generatorService.getResultByParams(params);
 			return new ReturnT<>(result);
 		} catch (IOException | TemplateException e) {
@@ -85,6 +80,8 @@ public class IndexController {
 		} catch (CodeGenerateException e) {
 			log.error(e.getMessage(), e);
 			return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
+		}finally {
+			generatorService.asyncCilentInfo();
 		}
 
 	}
