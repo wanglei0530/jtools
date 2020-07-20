@@ -1,6 +1,7 @@
 package cn.utils.jtools.service;
 
 import cn.utils.jtools.utils.FreemarkerTool;
+import com.alibaba.fastjson.JSONObject;
 import freemarker.template.TemplateException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,9 +88,25 @@ public class GeneratorServiceImpl implements GeneratorService {
 	@Async("taskExecutor")
 	public void asyncCilentInfo() {
 		try {
-			log.info("记录游客客户端信息:");
+			log.info("记录游客客户端信息:{}", getHeaderJson(request));
+//			request.getHeader("user-agent");
+//			request.getHeader("referer");
+//			request.getHeader("x-forwarded-for");
 		} catch (Exception e) {
 			log.error("记录游客客户端信息,发生异常:{}", e);
 		}
+	}
+
+	/**
+	 * 获取请求头信息
+	 */
+	private String getHeaderJson(HttpServletRequest request) {
+		Enumeration<String> headerNames = request.getHeaderNames();
+		JSONObject header = new JSONObject();
+		while (headerNames.hasMoreElements()) {
+			String headerName = headerNames.nextElement();
+			header.put(headerName, request.getHeader(headerName));
+		}
+		return header.toJSONString();
 	}
 }
