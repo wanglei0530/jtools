@@ -32,8 +32,6 @@ spring:
       encoding:
         force: true
         charset: UTF-8
-    application:
-      name: spring-boot-jtools
     freemarker:
       request-context-attribute: request
       suffix: .ftl
