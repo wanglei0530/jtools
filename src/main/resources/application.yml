@@ -22,27 +22,27 @@ server:
     direct-buffers: true
 
 spring:
-#  application:
-#    name: jtools-service #服务名
   profiles:
     active: dev
   banner:
     charset: UTF-8
-    http:
-      encoding:
-        force: true
-        charset: UTF-8
-    freemarker:
-      request-context-attribute: request
-      suffix: .ftl
-      content-type: text/html
-      enabled: true
-      cache: false
+  http:
+    encoding:
+      force: true
       charset: UTF-8
-      allow-request-override: false
-      expose-request-attributes: true
-      expose-session-attributes: true
-      expose-spring-macro-helpers: true
-    #    template-loader-path: classpath:/templates/
-    mvc:
-      static-path-pattern: /static/**
+  application:
+    name: spring-boot-jtools
+  freemarker:
+    request-context-attribute: request
+    suffix: .ftl
+    content-type: text/html
+    enabled: true
+    cache: false
+    charset: UTF-8
+    allow-request-override: false
+    expose-request-attributes: true
+    expose-session-attributes: true
+    expose-spring-macro-helpers: true
+  #    template-loader-path: classpath:/templates/
+  mvc:
+    static-path-pattern: /static/**
