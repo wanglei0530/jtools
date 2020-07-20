@@ -1,5 +1,8 @@
 package cn.utils.jtools.service;
 
+import cn.hutool.http.useragent.UserAgent;
+import cn.hutool.http.useragent.UserAgentUtil;
+import cn.hutool.json.JSONUtil;
 import cn.utils.jtools.utils.FreemarkerTool;
 import com.alibaba.fastjson.JSONObject;
 import freemarker.template.TemplateException;
@@ -25,9 +28,6 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	@Autowired
 	private FreemarkerTool freemarkerTool;
-
-	@Autowired
-	private HttpServletRequest request;
 
 	@Override
 	public Map<String, String> getResultByParams(Map<String, Object> params) throws IOException, TemplateException {
@@ -86,9 +86,12 @@ public class GeneratorServiceImpl implements GeneratorService {
 
 	@Override
 	@Async("taskExecutor")
-	public void asyncCilentInfo() {
+	public void asyncCilentInfo(HttpServletRequest request) {
 		try {
 			log.info("记录游客客户端信息:{}", getHeaderJson(request));
+			UserAgent ua = UserAgentUtil.parse(request.getHeader("user-agent"));
+			log.info("记录游客客户端信息user-agent:" + JSONUtil.toJsonStr(ua));
+			log.info("ip:" + getIpAddr(request));
 //			request.getHeader("user-agent");
 //			request.getHeader("referer");
 //			request.getHeader("x-forwarded-for");
@@ -108,5 +111,30 @@ public class GeneratorServiceImpl implements GeneratorService {
 			header.put(headerName, request.getHeader(headerName));
 		}
 		return header.toJSONString();
+	}
+
+	public String getIpAddr(HttpServletRequest request) {
+		if (request == null) {
+			return "unknown";
+		}
+		String ip = request.getHeader("x-forwarded-for");
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("Proxy-Client-IP");
+		}
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("X-Forwarded-For");
+		}
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("WL-Proxy-Client-IP");
+		}
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getHeader("X-Real-IP");
+		}
+
+		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+			ip = request.getRemoteAddr();
+		}
+
+		return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip.split(",")[0];
 	}
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class IndexController {
 
 	@PostMapping("/genCode")
 	@ResponseBody
-	public ReturnT<Map<String, String>> codeGenerate(@RequestBody ParamInfo paramInfo) {
+	public ReturnT<Map<String, String>> codeGenerate(@RequestBody ParamInfo paramInfo, HttpServletRequest request) {
 		try {
 			if (StringUtils.isBlank(paramInfo.getTableSql())) {
 				return new ReturnT<>(ReturnT.FAIL_CODE, "表结构信息不可为空");
@@ -81,7 +82,7 @@ public class IndexController {
 			log.error(e.getMessage(), e);
 			return new ReturnT<>(ReturnT.FAIL_CODE, e.getMessage());
 		}finally {
-			generatorService.asyncCilentInfo();
+			generatorService.asyncCilentInfo(request);
 		}
 
 	}
