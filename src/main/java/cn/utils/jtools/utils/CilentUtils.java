@@ -1,6 +1,7 @@
 package cn.utils.jtools.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
@@ -35,8 +36,10 @@ public class CilentUtils {
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getRemoteAddr();
 		}
-
-		return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip.split(",")[0];
+		if (StringUtils.isBlank(ip)) {
+			return "";
+		}
+		return StringUtils.equals("0:0:0:0:0:0:0:1", ip) ? "127.0.0.1" : ip.split(",")[0];
 	}
 
 	public static boolean internalIp(String ip) {
