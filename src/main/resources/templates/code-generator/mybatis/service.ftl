@@ -3,6 +3,7 @@ import java.util.Map;
 /**
  * @description ${classInfo.classComment}
  * @author ${authorName}
+ * {@link} http://jtools.top
  * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
 public interface ${classInfo.className}Service {

@@ -7,6 +7,7 @@ import ${packageName}.entity.${classInfo.className};
 /**
  * @description ${classInfo.classComment} Mapper
  * @author ${authorName}
+ * {@link} http://jtools.top
  * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
 @Mapper
