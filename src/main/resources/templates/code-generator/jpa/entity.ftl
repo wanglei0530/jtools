@@ -15,6 +15,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * @description ${classInfo.classComment}
  * @author ${authorName}
+ * {@link} http://jtools.top
  * @date ${.now?string('yyyy-MM-dd HH:mm:ss')}
  */
 @Entity
