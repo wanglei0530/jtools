@@ -1,7 +1,7 @@
 package cn.utils.jtools.utils;
 
 /**
- * @author xuxueli 2018-05-02 21:10:28
+ * @author wanglei 2018-05-02 21:10:28
  */
 public class CodeGenerateException extends RuntimeException {
     private static final long serialVersionUID = 42L;

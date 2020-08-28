@@ -3,7 +3,7 @@ package cn.utils.jtools.utils;
 /**
  * string tool
  *
- * @author xuxueli 2018-05-02 20:43:25
+ * @author wanglei 2018-05-02 20:43:25
  */
 public class StringUtils {
 
