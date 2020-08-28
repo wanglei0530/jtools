@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JTools</title>
-    <meta name="keywords" content="JTools,MybaitsGenerator,Mybaits在线自动生产代码,java王蕾,Json转Bean,Java JPA">
+    <meta name="keywords" content="Mybaits在线生成,JTools生成工具,MybaitsGenerator,java王蕾,Json转Bean,Java JPA">
 
     <#import "common/common-import.ftl" as netCommon>
     <@netCommon.commonStyle />
@@ -241,12 +241,12 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
-        <h2>Spring Boot Code Generator!</h2>
+        <h2>在线Code生成工具</h2>
         <p class="lead">
             <#--√基于SpringBoot2+Freemarker的<a class="lead" href="https://github.com/wanglei0530/jtools" target="_blank" >代码生成器</a>，√以释放双手为目的，√支持mysql/oracle/pgsql三大数据库，<br>-->
-            √基于SpringBoot2+Freemarker的代码生成器，√以释放双手为目的，√支持mysql/oracle/pgsql三大数据库，<br>
-            √用DDL-SQL语句生成JPA/JdbcTemplate/Mybatis/MybatisPlus/BeetlSQL相关代码。<br>
-            如果发现有SQL语句不能识别，请<a href="https://wanglei0530.github.io/message/" target="_blank" >留言</a>，同时欢迎大家<a href="#" id="jiaqun1" >加群</a>讨论和<a href="#" id="donate1">赞赏</a>，谢谢！<a id="version" href="#">查看版本</a>
+                √一寸光阴一寸金，简单一步，代码艺术，把代码写成诗！<br>
+                √将SQL或JSON复制到文本框即可，生成JPA/JdbcTemplate/Mybatis/MybatisPlus/BeetlSQL相关代码。<br>
+                如果使用中发现问题，请反馈给我<a href="https://wanglei0530.github.io/message/" target="_blank" >留言</a>，同时欢迎大家<a href="#" id="jiaqun1" >加群</a>讨论和<a href="#" id="donate1">赞赏</a>，谢谢！<a id="version" href="#">查看版本</a>。
         </p>
         <div id="donate" class="container" show="no"></div>
         <hr>
@@ -262,7 +262,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">包名路径</span>
             </div>
-            <input type="text" class="form-control" id="packageName" name="packageName" value="cn.jtools.system">
+            <input type="text" class="form-control" id="packageName" name="packageName" value="top.jtools.system">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -279,9 +279,9 @@
             </div>
             <select type="text" class="form-control" id="tinyintTransType"
                     name="tinyintTransType">
-                <option value="Integer">Integer</option>
-                <option value="boolean">boolean</option>
                 <option value="Boolean">Boolean</option>
+                <option value="boolean">boolean</option>
+                <option value="Integer">Integer</option>
                 <option value="int">int</option>
                 <option value="String">String</option>
             </select>
@@ -304,12 +304,12 @@
             </select>
         </div>
         <textarea id="ddlSqlArea" placeholder="请输入表结构信息..." class="form-control btn-lg" style="height: 250px;">
-            CREATE TABLE 'userinfo' (
-              'user_id' int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-              'username' varchar(255) NOT NULL COMMENT '用户名',
-              'addtime' datetime NOT NULL COMMENT '创建时间',
-              PRIMARY KEY ('user_id')
-            ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息'
+CREATE TABLE 'userinfo' (
+  'user_id' int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+  'username' varchar(255) NOT NULL COMMENT '用户名',
+  'addtime' datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY ('user_id')
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息'
         </textarea>
         <br>
         <p><button class="btn btn-primary btn-lg disabled" id="btnGenCode" role="button" data-toggle="popover" data-content="">开始生成 »</button> <button class="btn alert-secondary" id="btnCopy">一键复制</button></p>

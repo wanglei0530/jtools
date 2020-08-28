@@ -60,8 +60,8 @@
                         <p>
                             <#--<a href="https://github.com/wanglei0530/jtools" target="_blank">JTools</a>-->
                             <#--由<a href="https://github.com/wanglei0530/jtools" target="_blank">王蕾</a> 开发维护; BeJson/三叔 提供源码分享。点击-->
-                            JTools由<a href="https://wanglei0530.github.io/about" target="_blank">王蕾</a>开发维护; 三叔 提供源码分享。
-                            联系我<a href="#" id="jiaqun2">加群</a>。
+                            JTools由<a href="https://wanglei0530.github.io/about" target="_blank">王蕾</a>开发维护; 三叔 提供源码分享;
+                                <a href="#" id="jiaqun2">联系我</a>
                         </p>
                 </div>
             </footer>
