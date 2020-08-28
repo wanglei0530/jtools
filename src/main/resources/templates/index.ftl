@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>JTools</title>
-    <meta name="keywords" content="Mybaits在线生成,JTools生成工具,MybaitsGenerator,java王蕾,Json转Bean,Java JPA">
+    <title>JTools代码生成</title>
+    <meta name="keywords" content="Mybaits在线生成JTools,java王蕾,Json转Bean,Java JPA">
 
     <#import "common/common-import.ftl" as netCommon>
     <@netCommon.commonStyle />
@@ -450,7 +450,6 @@ CREATE TABLE 'userinfo' (
         <textarea id="genCodeArea" class="form-control btn-lg" ></textarea>
     </div>
 </div>
-
     <@netCommon.commonFooter />
 </body>
 </html>
