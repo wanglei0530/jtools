@@ -2,6 +2,7 @@ import java.io.Serializable;
 import lombok.Data;
 import java.util.Date;
 import java.util.List;
+import java.math.BigDecimal;
 
 /**
  * @description ${classInfo.classComment}

@@ -1,5 +1,3 @@
-package ${packageName}.controller;
-
 import ${packageName}.entity.${classInfo.className};
 import ${packageName}.repository.${classInfo.className}Repository;
 import org.springframework.data.domain.Example;

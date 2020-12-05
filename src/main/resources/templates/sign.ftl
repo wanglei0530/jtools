@@ -2,8 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>JTools - Signature verification</title>
-    <meta name="keywords" content="Signature algorithm test 微信签名验证">
+    <title>JTools - 签名工具</title>
+    <meta name="keywords" content="在线签名工具">
 
     <#import "common/common-import.ftl" as netCommon>
     <@netCommon.commonStyle />

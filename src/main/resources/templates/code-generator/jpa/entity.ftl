@@ -1,5 +1,3 @@
-package ${packageName}.entity;
-
 import lombok.Data;
 import java.util.Date;
 import java.util.List;
@@ -11,6 +9,7 @@ import javax.persistence.Table;
 import javax.persistence.GeneratedValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.math.BigDecimal;
 
 /**
  * @description ${classInfo.classComment}

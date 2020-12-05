@@ -43,6 +43,9 @@
     <script src="//cdn.staticfile.org/codemirror/5.48.4/mode/clike/clike.min.js"></script>
     <script src="//cdn.staticfile.org/codemirror/5.48.4/mode/sql/sql.min.js"></script>
     <script src="//cdn.staticfile.org/codemirror/5.48.4/mode/xml/xml.min.js"></script>
+    <!-- json markdown -->
+    <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/marked@0.3.6/marked.min.js"></script>
 </#macro>
 
 <#macro commonFooter >

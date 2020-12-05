@@ -1,6 +1,8 @@
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.math.BigDecimal;
 
 /**
  * @description ${classInfo.classComment}
