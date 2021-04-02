@@ -37,7 +37,7 @@ public class ${classInfo.className}Controller {
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/delete")
-    public ReturnT<String> delete(int id){
+    public ReturnT<String> delete(Long id){
         return ${classInfo.className?uncap_first}Service.delete(id);
     }
 
@@ -57,19 +57,9 @@ public class ${classInfo.className}Controller {
     * @date ${.now?string('yyyy/MM/dd')}
     **/
     @RequestMapping("/load")
-    public ReturnT<String> load(int id){
+    public ReturnT<String> load(Long id){
         return ${classInfo.className?uncap_first}Service.load(id);
     }
 
-    /**
-    * 查询 分页查询
-    * @author ${authorName}
-    * @date ${.now?string('yyyy/MM/dd')}
-    **/
-    @RequestMapping("/pageList")
-    public Map<String, Object> pageList(@RequestParam(required = false, defaultValue = "0") int offset,
-                                        @RequestParam(required = false, defaultValue = "10") int pagesize) {
-        return ${classInfo.className?uncap_first}Service.pageList(offset, pagesize);
-    }
 
 }

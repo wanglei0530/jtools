@@ -5,7 +5,7 @@
 	<!--&lt;!&ndash; 项目名 &ndash;&gt;-->
 	<!--<property name="APP_NAME" value="nanopay-giftcard-service" />-->
 	<!-- 文件路径 -->
-	<property name="LOG_HOME" value="/root/java_project/logs/jtools/" />
+	<property name="LOG_HOME" value="./logs/jtools/" />
 	<property name="LOG_NAME" value="info" />
 
 	<contextName>${APP_NAME}</contextName>
